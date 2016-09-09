@@ -21,6 +21,7 @@ respond_to :html
 
  
   def edit
+    authorize! :manage, @book
   end
 
   def create
@@ -33,12 +34,14 @@ respond_to :html
 
  
   def update
+    authorize! :manage, @book
    @book.update(book_params)
    respond_with(@book)
   end
 
  
   def destroy
+    authorize! :manage, @book
     @book.destroy
     respond_with(@book)
     end
